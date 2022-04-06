@@ -1,12 +1,18 @@
 const User = require('../models/User.js');
 const router = require('express').Router();
 
+/**
+ * Define /users
+ */
 router.get('/', async (req, res) => {
     const user = new User();
     const users = await user.list();
     res.send(users);
 })
 
+/**
+ * Define /users/:id
+ */
 router.get('/:id', async (req, res) => {
     const id = req.params.id;
     const user = new User();
@@ -15,6 +21,9 @@ router.get('/:id', async (req, res) => {
     res.send(userData);
 })
 
+/**
+ * Define /users/create
+ */
 router.post('/create', async (req, res) => {
     const {name, email, faceDescriptor} = req.body;
     const user = new User(name, email, faceDescriptor);
@@ -23,6 +32,9 @@ router.post('/create', async (req, res) => {
     res.send({success: success});
 })
 
+/**
+ * Define /users/log
+ */
 router.post('/log', async (req, res) => {
     const {userID} = req.body;
     const user = new User();

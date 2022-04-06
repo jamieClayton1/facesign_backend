@@ -1,6 +1,9 @@
 const Schedule = require('../models/Schedule.js');
 const router = require('express').Router();
 
+/**
+ * Define /schedules/post
+ */
 router.post('/', async (req, res) => {
     const date = req.body.date;
     const schedule = new Schedule();
@@ -8,14 +11,16 @@ router.post('/', async (req, res) => {
     res.send(schedules);
 })
 
+/**
+ * Define /schedules/:id
+ */
 router.get('/:id', async (req, res) => {
-    // const id = req.params.id;
-    // const user = new User();
-    // const userData = await user.get(id);
-
-    // res.send(userData);
+    //TODO
 })
 
+/**
+ * Define /schedules/create
+ */
 router.post('/create', async (req, res) => {
     const {userID, from, to, date} = req.body;
     const schedule = new Schedule(userID, from, to, date);
@@ -24,12 +29,14 @@ router.post('/create', async (req, res) => {
     res.send({success: success});
 })
 
+/**
+ * Define schedules/log
+ */
 router.post('/log', async (req, res) => {
-    // const {userID} = req.body;
-    // const user = new User();
-    // const success = await user.logVerification(userID);
-
-    // res.send({success: success});
+  //TODO
 })
 
+/**
+ * Export router
+ */
 module.exports = router;

@@ -6,6 +6,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+/* Define routes */
 const usersRoute = require('./routes/users.js');
 const schedulesRoute = require('./routes/schedules.js');
 
